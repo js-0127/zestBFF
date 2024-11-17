@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "dev:bff": "pnpm --filter @nest/bff run dev"
+    "dev:bff": "pnpm --filter @nest/bff run dev",
+    "dev:gateway": " pnpm --filter @nest/gateway run dev"
   },
   "keywords": [],
   "author": "",
@@ -11,5 +12,10 @@
   "devDependencies": {
     "@swc/cli": "^0.5.0",
     "@swc/core": "^1.9.2"
+  },
+  "dependencies": {
+    "@nestjs/cache-manager": "^2.3.0",
+    "@nestjs/config": "^3.3.0",
+    "cache-manager": "^6.1.3"
   }
 }
