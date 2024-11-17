@@ -32,61 +32,13 @@
 $ pnpm install
 ```
 
-## deploy
+## troduction
 
-项目为纯 docker 部署需要 docker version >= 24 启动项目前需要将数据库整理好，sql 文件会放在仓库里
+由nest编写的一套由bff -> gateway -> 微服务的一套nest微服务架构，旨在学习
 
-将后端文件打包成 docker 镜像(需要先执行上面的 pnpm install)
+启动项目 需要 node >= 20
 
-```
-docker build -t 镜像名称[:tag] ./
-```
 
-### 数据库操作
-
-首先进入 mysql 容器
-
-```
-docker ps //查看正在启动的容器
-docker exec -it 容器id /bin/sh
-```
-
-```
-mysql -u root -p
-use meng_admin
-source sql文件(路径)
-```
-
-若出现服务器 ip 不能连接数据库问题，执行以下命令
-
-```
-CREATE USER 'root'@'%' IDENTIFIED BY 'admin123';
-GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' WITH GRANT OPTION;
-FLUSH PRIVILEGES;
-```
-
-### nest 后端
-
-需要同步 prisma 结构
-
-首先进入 nest 后端容器
-
-```
-docker ps //查看正在启动的容器
-docker exec -it 容器id /bin/sh
-```
-
-执行
-
-```
-prisma migrate dev
-```
-
-## Running the app
-
-```
-docker-compose up
-```
 
 ## Support
 
